@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - QR Attendance System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-dark bg-gradient-primary fixed-top">
+        <div class="container-fluid">
+            <a href="../index.html" class="navbar-brand">
+                <i class="fas fa-qrcode me-2"></i>QR Attendance System
+            </a>
+            <div class="d-flex align-items-center gap-3">
+                <span class="badge bg-secondary"><i class="fas fa-user-shield me-2"></i>Admin</span>
+                <span class="text-white" id="currentDateTime"></span>
+                <a href="#" id="logoutBtn" class="btn btn-sm btn-outline-light">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar-wrapper">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h5 class="mb-0"><i class="fas fa-bars me-2"></i>Menu</h5>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-link active">
+                    <i class="fas fa-chart-line"></i><span>Dashboard</span>
+                </a>
+                <a href="students.html" class="nav-link">
+                    <i class="fas fa-users"></i><span>Students</span>
+                </a>
+            </nav>
+        </aside>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+        <!-- DASHBOARD SECTION -->
+        <section id="dashboard-section" class="content-section active">
+            <div class="page-header">
+                <h2><i class="fas fa-chart-line me-2"></i>Dashboard Overview</h2>
+            </div>
+
+            <!-- Summary Cards -->
+            <div class="row mb-4">
+                <div class="col-md-4 mb-3">
+                    <div class="stat-card card-blue">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <p class="card-label">Total Students</p>
+                                    <h3 class="stat-value" id="totalStudents">0</h3>
+                                </div>
+                                <i class="fas fa-users"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="stat-card card-green">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <p class="card-label">Total Teachers</p>
+                                    <h3 class="stat-value">5</h3>
+                                </div>
+                                <i class="fas fa-chalkboard-user"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="stat-card card-purple">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <p class="card-label">Total Subjects</p>
+                                    <h3 class="stat-value">12</h3>
+                                </div>
+                                <i class="fas fa-book"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+    </main>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Logout Handler and Date/Time Display -->
+    <script>
+        // Logout handler
+        document.getElementById('logoutBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            sessionStorage.removeItem('currentUser');
+            window.location.href = '../auth/login.html';
+        });
+        
+        // Update current date/time
+        function updateDateTime() {
+            const now = new Date();
+            document.getElementById('currentDateTime').textContent = now.toLocaleString();
+        }
+        updateDateTime();
+        setInterval(updateDateTime, 1000);
+    </script>
+    
+    <!-- App JS -->
+    <script src="../assets/js/app.js"></script>
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,1342 @@
+/* ========================================================================
+                    ATTENDANCE MANAGEMENT SYSTEM - STYLES
+   =========================== */
+:root {
+    --primary-color: #2563eb;
+    --secondary-color: #1e40af;
+    --success-color: #16a34a;
+    --danger-color: #dc2626;
+    --warning-color: #f59e0b;
+    --info-color: #0891b2;
+    --purple-color: #9333ea;
+    --light-bg: #f8fafc;
+    --dark-bg: #1e293b;
+    --border-color: #cbd5e1;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.15);
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f7fa;
+    color: #333;
+}
+
+/* ===========================
+   LANDING PAGE STYLES
+   Styles for the landing/home page with role selection cards
+   =========================== */
+.landing-page {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.landing-container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+}
+
+.landing-content {
+    text-align: center;
+}
+
+.landing-header {
+    margin-bottom: 60px;
+    animation: fadeIn 0.8s ease;
+}
+
+.landing-icon {
+    font-size: 80px;
+    color: white;
+    margin-bottom: 20px;
+    animation: bounce 2s infinite;
+}
+
+.landing-header h1 {
+    font-size: 3.5rem;
+    color: white;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+.landing-header p {
+    font-size: 1.3rem;
+    color: rgba(255,255,255,0.9);
+}
+
+.role-selection {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.role-card {
+    background: white;
+    border-radius: 12px;
+    padding: 40px 30px;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--shadow-lg);
+    animation: slideUp 0.8s ease;
+}
+
+.role-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.role-icon {
+    font-size: 60px;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.role-card h3 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #1e293b;
+}
+
+.role-card p {
+    color: #64748b;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+}
+
+.role-card .btn {
+    width: 100%;
+}
+
+.landing-footer {
+    text-align: center;
+    color: rgba(255,255,255,0.8);
+    font-size: 0.9rem;
+}
+
+/* ===========================
+   NAVBAR STYLES
+   Styles for the top navigation bar including brand, gradients, and role selector
+   =========================== */
+.navbar {
+    padding: 1rem;
+    box-shadow: var(--shadow-lg);
+    z-index: 1030;
+    min-height: 70px;
+}
+
+.bg-gradient-primary {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%) !important;
+}
+
+.bg-gradient-secondary {
+    background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%) !important;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white !important;
+    letter-spacing: 0.5px;
+}
+
+.navbar-brand i {
+    color: #2ecc71;
+}
+
+.role-selector {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.role-selector .form-select {
+    padding: 0.4rem 0.6rem;
+    border: 2px solid white;
+    border-radius: 5px;
+    background-color: white;
+    color: var(--primary-color);
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.role-selector .form-select:hover {
+    background-color: #ecf0f1;
+}
+
+#sidebarToggle {
+    transition: var(--transition);
+}
+
+#sidebarToggle:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* ===========================
+   SIDEBAR STYLES
+   Styles for the left navigation sidebar with menu links and navigation items
+   =========================== */
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 70px;
+    width: 250px;
+    height: calc(100vh - 70px);
+    background: var(--dark-bg);
+    padding: 2rem 0;
+    box-shadow: var(--shadow-lg);
+    overflow-y: auto;
+    z-index: 1020;
+    transition: transform 0.3s ease;
+}
+
+.sidebar.hide {
+    transform: translateX(-100%);
+}
+
+.sidebar-header {
+    padding: 0 1.5rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.sidebar-header h5 {
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.sidebar-nav {
+    padding: 1.5rem 0;
+}
+
+.sidebar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.7);
+    padding: 1rem 1.5rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: var(--transition);
+    border-left: 4px solid transparent;
+}
+
+.sidebar-nav .nav-link:hover {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-left-color: #2ecc71;
+}
+
+.sidebar-nav .nav-link.active {
+    color: white;
+    background-color: rgba(52, 152, 219, 0.2);
+    border-left-color: #2ecc71;
+}
+
+.sidebar-nav i {
+    width: 20px;
+    text-align: center;
+}
+
+.sidebar-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 1.5rem 0;
+    border-top: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-footer .nav-link {
+    margin-bottom: 0;
+}
+
+.sidebar-footer .nav-link:hover {
+    color: #e74c3c;
+    background-color: rgba(231, 76, 60, 0.1);
+    border-left-color: #e74c3c;
+}
+
+/* ===========================
+   MAIN CONTENT STYLES
+   Styles for the main content area that appears next to the sidebar
+   =========================== */
+.main-content {
+    margin-left: 250px;
+    margin-top: 70px;
+    padding: 2rem;
+    min-height: calc(100vh - 70px);
+}
+
+/* ===========================
+   DASHBOARD SECTIONS
+   Styles for dashboard content sections with show/hide animations
+   =========================== */
+.dashboard-section {
+    display: none;
+    animation: fadeIn 0.4s ease;
+}
+
+.dashboard-section.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===========================
+   STAT CARDS
+   Styles for colored dashboard stat cards (blue, green, orange, red, purple)
+   Used to display key metrics and statistics
+   =========================== */
+.stat-card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    overflow: hidden;
+    position: relative;
+}
+
+.stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.stat-card .card-body {
+    padding: 1.5rem;
+}
+
+.stat-card .card-label {
+    font-size: 0.85rem;
+    color: #7f8c8d;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.stat-card .stat-value {
+    font-weight: 700;
+    margin-top: 0.5rem;
+    font-size: 2.5rem;
+}
+
+.stat-card i {
+    font-size: 3rem;
+    opacity: 0.8;
+}
+
+.card-blue {
+    border-top: 4px solid #3498db;
+}
+
+.card-blue .stat-value {
+    color: #3498db;
+}
+
+.card-blue i {
+    color: #3498db;
+}
+
+.card-blue::before {
+    background: linear-gradient(90deg, #3498db, #3498db);
+}
+
+.card-green {
+    border-top: 4px solid #27ae60;
+}
+
+.card-green .stat-value {
+    color: #27ae60;
+}
+
+.card-green i {
+    color: #27ae60;
+}
+
+.card-green::before {
+    background: linear-gradient(90deg, #27ae60, #27ae60);
+}
+
+.card-orange {
+    border-top: 4px solid #f39c12;
+}
+
+.card-orange .stat-value {
+    color: #f39c12;
+}
+
+.card-orange i {
+    color: #f39c12;
+}
+
+.card-orange::before {
+    background: linear-gradient(90deg, #f39c12, #f39c12);
+}
+
+.card-red {
+    border-top: 4px solid #e74c3c;
+}
+
+.card-red .stat-value {
+    color: #e74c3c;
+}
+
+.card-red i {
+    color: #e74c3c;
+}
+
+.card-red::before {
+    background: linear-gradient(90deg, #e74c3c, #e74c3c);
+}
+
+.card-purple {
+    border-top: 4px solid #9b59b6;
+}
+
+.card-purple .stat-value {
+    color: #9b59b6;
+}
+
+.card-purple i {
+    color: #9b59b6;
+}
+
+.card-purple::before {
+    background: linear-gradient(90deg, #9b59b6, #9b59b6);
+}
+
+/* ===========================
+   CARD STYLES
+   General styles for content cards throughout the application
+   =========================== */
+.card {
+    border: none;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    margin-bottom: 1.5rem;
+}
+
+.card:hover {
+    box-shadow: var(--shadow-lg);
+}
+
+.card-header {
+    border-bottom: 2px solid #ecf0f1;
+    border-radius: 8px 8px 0 0 !important;
+    color: white;
+    font-weight: 600;
+}
+
+.card-header h5 {
+    color: white;
+    margin: 0;
+    font-weight: 600;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+/* ===========================
+   PROFILE AVATAR
+   Styles for user profile avatar/icon display
+   =========================== */
+.profile-avatar {
+    font-size: 4rem;
+    color: #3498db;
+}
+
+/* ===========================
+   TABLE STYLES
+   Styles for data tables including headers, rows, and hover effects
+   =========================== */
+.table {
+    margin-bottom: 0;
+}
+
+.table thead th {
+    background-color: #f8f9fa;
+    border-bottom: 2px solid #ecf0f1;
+    color: var(--primary-color);
+    font-weight: 600;
+    padding: 1.2rem;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+}
+
+.table tbody tr {
+    transition: var(--transition);
+    border-bottom: 1px solid #ecf0f1;
+}
+
+.table tbody tr:hover {
+    background-color: #f8f9fa;
+    transform: translateX(5px);
+}
+
+.table tbody td {
+    padding: 1.2rem;
+    vertical-align: middle;
+}
+
+/* ===========================
+   STATUS BADGES
+   Styles for attendance status badges (present/absent)
+   =========================== */
+.status-badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: var(--transition);
+}
+
+.status-present {
+    background-color: #d5f4e6;
+    color: #27ae60;
+}
+
+.status-present:hover {
+    background-color: #27ae60;
+    color: white;
+}
+
+.status-absent {
+    background-color: #fadbd8;
+    color: #e74c3c;
+}
+
+.status-absent:hover {
+    background-color: #e74c3c;
+    color: white;
+}
+
+/* ===========================
+   FORM STYLES
+   Styles for all form elements including inputs, selects, buttons, and labels
+   =========================== */
+.form-label {
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.form-control,
+.form-select {
+    border: 2px solid #ecf0f1;
+    border-radius: 6px;
+    padding: 0.75rem;
+    transition: var(--transition);
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
+}
+
+.btn {
+    border-radius: 6px;
+    font-weight: 600;
+    transition: var(--transition);
+    padding: 0.6rem 1.2rem;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    border: none;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(52, 152, 219, 0.4);
+}
+
+.btn-secondary {
+    background-color: #95a5a6;
+    border: none;
+}
+
+.btn-secondary:hover {
+    background-color: #7f8c8d;
+    transform: translateY(-2px);
+}
+
+.btn-danger {
+    background-color: #e74c3c;
+    border: none;
+}
+
+.btn-danger:hover {
+    background-color: #c0392b;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(231, 76, 60, 0.4);
+}
+
+.btn-light {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.btn-light:hover {
+    background-color: white;
+}
+
+/* ===========================
+   ACTION BUTTONS IN TABLE
+   Styles for edit and delete action buttons that appear in data tables
+   =========================== */
+.btn-action {
+    padding: 0.4rem 0.8rem;
+    margin: 0.25rem;
+    border-radius: 5px;
+    font-size: 0.85rem;
+    transition: var(--transition);
+    display: inline-block;
+}
+
+.btn-edit {
+    background-color: #3498db;
+    color: white;
+    border: none;
+}
+
+.btn-edit:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+}
+
+.btn-delete {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+}
+
+.btn-delete:hover {
+    background-color: #c0392b;
+    transform: translateY(-2px);
+}
+
+/* ===========================
+   SEARCH INPUT
+   Styles for search/filter input groups with icons
+   =========================== */
+.input-group {
+    margin-bottom: 1.5rem;
+}
+
+.input-group-text {
+    border: 2px solid #ecf0f1;
+    background-color: white;
+    color: #3498db;
+    border-radius: 6px 0 0 6px;
+}
+
+.input-group .form-control {
+    border-radius: 0 6px 6px 0;
+}
+
+/* ===========================
+   MODAL STYLES
+   Styles for popup modals and dialogs (add/edit forms, previews, etc.)
+   =========================== */
+.modal-content {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.modal-header {
+    border: none;
+    border-radius: 8px 8px 0 0;
+    color: white;
+}
+
+.modal-header .btn-close-white {
+    filter: brightness(0) invert(1);
+}
+
+.modal-title {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.modal-footer .btn {
+    border-radius: 5px;
+}
+
+/* ===========================
+   RESPONSIVE DESIGN
+   Media queries for tablet (992px), medium screens (768px), and mobile (576px)
+   Adjusts layout, font sizes, and spacing for smaller screens
+   =========================== */
+@media (max-width: 992px) {
+    /* TABLET & MEDIUM SCREENS (up to 992px) - Adjust sidebar and font sizes */
+    .sidebar {
+        width: 220px;
+    }
+
+    .main-content {
+        margin-left: 220px;
+        padding: 1.5rem;
+    }
+
+    .stat-card .stat-value {
+        font-size: 2rem;
+    }
+
+    .stat-card i {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    /* TABLETS & SMALL SCREENS (up to 768px) - Reduce padding, font sizes, and table spacing */
+    .sidebar {
+        width: 200px;
+    }
+
+    .main-content {
+        margin-left: 200px;
+        padding: 1rem;
+    }
+
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+
+    .role-selector label {
+        font-size: 0.9rem;
+    }
+
+    .role-selector .form-select {
+        font-size: 0.85rem;
+    }
+
+    .stat-card .stat-value {
+        font-size: 1.8rem;
+    }
+
+    .stat-card i {
+        font-size: 2rem;
+    }
+
+    .stat-card .card-label {
+        font-size: 0.8rem;
+    }
+
+    .table {
+        font-size: 0.9rem;
+    }
+
+    .table thead th,
+    .table tbody td {
+        padding: 0.75rem 0.5rem;
+    }
+
+    .btn-action {
+        padding: 0.35rem 0.6rem;
+        font-size: 0.75rem;
+        display: block;
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+
+    .card-header h5 {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    /* MOBILE DEVICES (up to 576px) - Full responsive layout, sidebar becomes overlay, stacked buttons */
+    .sidebar {
+        position: fixed;
+        width: 100%;
+        top: 70px;
+        left: 0;
+        height: calc(100vh - 70px);
+        z-index: 1050;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+    }
+
+    .sidebar.show {
+        transform: translateX(0);
+    }
+
+    .main-content {
+        margin-left: 0;
+        margin-top: 70px;
+        padding: 1rem;
+    }
+
+    .navbar {
+        min-height: 60px;
+        padding: 0.75rem;
+    }
+
+    .navbar-brand {
+        font-size: 1rem;
+    }
+
+    .navbar-brand i {
+        font-size: 1.3rem;
+    }
+
+    .role-selector label {
+        display: none;
+    }
+
+    .role-selector .form-select {
+        font-size: 0.8rem;
+        padding: 0.3rem 0.5rem;
+    }
+
+    .stat-card .stat-value {
+        font-size: 1.5rem;
+    }
+
+    .stat-card i {
+        font-size: 1.8rem;
+    }
+
+    .stat-card .card-label {
+        font-size: 0.75rem;
+    }
+
+    .stat-card .card-body {
+        padding: 1rem;
+    }
+
+    .table thead th {
+        font-size: 0.75rem;
+        padding: 0.5rem;
+    }
+
+    .table tbody td {
+        padding: 0.5rem;
+        font-size: 0.85rem;
+    }
+
+    .status-badge {
+        padding: 0.35rem 0.75rem;
+        font-size: 0.75rem;
+    }
+
+    .btn-action {
+        padding: 0.35rem 0.5rem;
+        font-size: 0.7rem;
+    }
+
+    .form-label {
+        font-size: 0.95rem;
+    }
+
+    .form-control,
+    .form-select {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    .card-header h5 {
+        font-size: 1rem;
+    }
+
+    .row {
+        margin-right: -0.5rem;
+        margin-left: -0.5rem;
+    }
+
+    .col-md-4,
+    .col-lg-6,
+    .col-12 {
+        padding-right: 0.5rem;
+        padding-left: 0.5rem;
+    }
+
+    .profile-avatar {
+        font-size: 3rem;
+    }
+
+    .table-responsive {
+        border-radius: 8px;
+        border: 1px solid #ecf0f1;
+    }
+}
+
+/* ===========================
+   SCROLLBAR STYLES
+   Custom webkit scrollbar styling for a polished look
+   =========================== */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* ===========================
+   UTILITY CLASSES
+   Helper classes for text colors, spacing, and gaps
+   Used for quick styling adjustments throughout the application
+   =========================== */
+.text-danger {
+    color: #e74c3c;
+}
+
+.text-success {
+    color: #27ae60;
+}
+
+.text-muted {
+    color: #7f8c8d;
+}
+
+.text-white {
+    color: white;
+}
+
+.mb-0 {
+    margin-bottom: 0;
+}
+
+.mb-1 {
+    margin-bottom: 0.5rem;
+}
+
+.mb-3 {
+    margin-bottom: 1rem;
+}
+
+.mb-4 {
+    margin-bottom: 1.5rem;
+}
+
+.mt-3 {
+    margin-top: 1rem;
+}
+
+.me-2 {
+    margin-right: 0.5rem;
+}
+
+.me-3 {
+    margin-right: 1rem;
+}
+
+.gap-3 {
+    gap: 1rem;
+}
+
+/* ===========================
+   LOGIN PAGE STYLES
+   Styles for the login/authentication page container and form
+   Light gray background with white card, blue header, and role selector buttons
+   =========================== */
+
+
+.container-custom {
+    background: url("/assets/img/school.jpg") no-repeat center center fixed;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px;
+    position: relative;
+    overflow: hidden;
+}
+
+.container-custom::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 500px;
+    height: 500px;
+    background: rgba(52, 152, 219, 0.05);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.container-custom::after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    left: -5%;
+    width: 400px;
+    height: 400px;
+    background: rgba(39, 174, 96, 0.03);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.container-custom .card {
+    background: white;
+    border: none;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08), 0 0 1px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px;
+    overflow: hidden;
+    animation: slideInUp 0.6s ease;
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.container-custom .card-header {
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    border: none;
+    position: relative;
+}
+
+.container-custom .card-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #3498db, #2ecc71, #2980b9);
+}
+
+.container-custom .card-header h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.container-custom .card-header p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+.container-custom .card-body {
+    padding: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    display: block;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+    letter-spacing: 0.3px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    border: 2px solid #ecf0f1;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: var(--transition);
+    background-color: #f8f9fa;
+}
+
+.form-control:focus {
+    background-color: white;
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+    outline: none;
+}
+
+.form-control::placeholder {
+    color: #bdc3c7;
+}
+
+/* Role Selector Button Styles - for choosing Teacher/Admin role */
+.role-selector {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    margin-top: 1rem;
+}
+
+.role-btn {
+    padding: 1rem;
+    border: 2px solid #ecf0f1;
+    background-color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    color: #7f8c8d;
+    transition: var(--transition);
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.role-btn:hover {
+    border-color: #3498db;
+    color: #3498db;
+    background-color: rgba(52, 152, 219, 0.05);
+}
+
+.role-btn.active {
+    background-color: #3498db;
+    border-color: #3498db;
+    color: white;
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+}
+
+/* Checkbox Group - for "Remember me" checkbox in login form */
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    gap: 0.5rem;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: #3498db;
+}
+
+.checkbox-group label {
+    cursor: pointer;
+    color: #7f8c8d;
+    font-weight: 500;
+    margin: 0;
+}
+
+/* Login Button - blue gradient button for form submission */
+.btn-login {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 1.05rem;
+    cursor: pointer;
+    transition: var(--transition);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.btn-login:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(52, 152, 219, 0.4);
+}
+
+.btn-login:active {
+    transform: translateY(0);
+}
+
+.btn-login:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Form Footer - sign up/login link section at bottom of form */
+.form-footer {
+    text-align: center;
+    padding-top: 1rem;
+    border-top: 1px solid #ecf0f1;
+}
+
+.form-footer p {
+    color: #7f8c8d;
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+.form-footer a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.form-footer a:hover {
+    color: #2980b9;
+    text-decoration: underline;
+}
+
+/* ===========================
+   SIGNUP PAGE STYLES
+   Styles for the signup/registration page form and buttons
+   Green gradient signup button with form row layout for name inputs
+   =========================== */
+.btn-signup {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 1.05rem;
+    cursor: pointer;
+    transition: var(--transition);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.btn-signup:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(39, 174, 96, 0.4);
+}
+
+.btn-signup:active {
+    transform: translateY(0);
+}
+
+.btn-signup:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Form Row for Side-by-side Input - displays first and last name fields side by side */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.form-row .form-group {
+    margin-bottom: 0;
+}
+
+/* Responsive Design for Login and Signup Pages */
+@media (max-width: 600px) {
+    .container-custom {
+        padding: 15px;
+    }
+
+    .container-custom .card {
+        max-width: 100%;
+        border-radius: 10px;
+    }
+
+    .container-custom .card-header {
+        padding: 2rem 1.25rem;
+    }
+
+    .container-custom .card-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .container-custom .card-body {
+        padding: 1.5rem;
+    }
+
+    .form-label {
+        font-size: 0.9rem;
+    }
+
+    .form-control {
+        padding: 0.75rem 0.9rem;
+        font-size: 0.95rem;
+    }
+
+    .role-selector {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+
+    .role-btn {
+        padding: 0.9rem;
+        font-size: 0.95rem;
+    }
+
+    .btn-login,
+    .btn-signup {
+        padding: 0.9rem;
+        font-size: 1rem;
+    }
+
+    .form-footer p {
+        font-size: 0.9rem;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+}
